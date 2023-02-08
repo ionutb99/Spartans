@@ -1,0 +1,31 @@
+var bg = createSprite(200, 200);
+bg.setAnimation("bg");
+bg.visible = true;
+var student = createSprite(40, 350);
+student.setAnimation("alien");
+student.scale = .8;
+var monster = createSprite(randomNumber(200, 700), 350);
+monster.setAnimation("monster");
+monster.scale = .2;
+var help = createSprite(randomNumber(200, 700), 164);
+help.setAnimation("ufo");
+help.scale = .3;
+function draw() {
+  if (keyWentDown("right")) {
+    student.velocityX = 5;
+  
+  }
+  if (keyDown("up")) {
+    student.velocityY = -5;
+  }
+  if (keyWentUp("up")) {
+    student.velocityY = 5;
+  }
+  if (student.y > 360) {
+    student.y = 350;
+  }
+  drawSprites();
+  textSize(18);
+  fill("black");
+  text("Progress", 10, 25);
+}
